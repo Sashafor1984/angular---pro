@@ -1,18 +1,5 @@
 06/06/2017
 API Developer Guide(Angular 2 + Express)
-: Squareup - jpqokubo@gmail.com ,  Summer18 
-: AppID - sq0idp-tnZwdlvjmwAsWGUicFE3rw
-: Token - sq0atp-e-JxqOIyWmmFQRzWopkv0g
-: S_ID - sandbox-sq0idp-tnZwdlvjmwAsWGUicFE3rw
-: S_Token - sandbox-sq0atb-g6U5GLA6BfnYi1N0GlBNpg
-: App_secret - sq0csp-3cDkzyiFMoEXSZLPpDi-8boo9_djxWAsWe7IuGHm7_8
-
-streamdata.io(client)
-
-: token - NmMwM2VmN2MtMmYzZS00OGQ4LTg0MGUtNjZhODQ3N2U0MjIw
-
-Streamdaata.io(john)
-: token - ZmIxMmU2NDQtZDgxOC00ZmE3LThkM2EtNGJlNDY2YmEzM2I4
 
 Squareup API
 
