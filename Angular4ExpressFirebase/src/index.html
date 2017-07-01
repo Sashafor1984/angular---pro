@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Angular4ExpressFirebase</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Bootstrap core CSS     -->
+  <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+  <!--<link href="./assets/css/material-dashboard.css" rel="stylesheet" />-->
+  <!--     Fonts and icons     -->
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <!--<link media="all" type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.0/css/foundation-flex.min.css">-->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,500" rel="stylesheet">
+  <base href="/">
+</head>
+<body>
+  
+  <app-root>
+    <div class="loader">
+			<svg class="circular" viewBox="25 25 50 50">
+				<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+			</svg>
+		</div>
+
+  </app-root>
+  <router-outlet></router-outlet>
+</body>
+
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+var $card = jQuery('.card');
+$card.onclick(function(){
+    console.log(111);
+    var $this = $(this);
+    $(this).children('.card-header, .card-image').addClass('hinge animated');
+});
+if ('undefined' !== typeof module) {
+    var breakCards = true;
+
+    module.exports = function initAniCharts(){
+        if(breakCards == true){
+            // We break the cards headers if there is too much stress on them :-)
+            $('[data-header-animation="true"]').each(function(){
+                var $fix_button = $(this);
+                var $card = $(this).parent('.card');
+                $card.find('.fix-broken-card').click(function(){
+                    console.log(this);
+                    var $header = $(this).parent().parent().siblings('.card-header, .card-image');
+                    $header.removeClass('hinge').addClass('fadeInDown');
+
+                    $card.attr('data-count',0);
+
+                    setTimeout(function(){
+                        $header.removeClass('fadeInDown animate');
+                    },480);
+                });
+
+                $card.click(function(){
+                    var $this = $(this);
+                    hover_count = parseInt($this.attr('data-count'), 10) + 1 || 0;
+                    console.log(hover_count);
+                    $this.attr("data-count", hover_count);
+                    if (hover_count >= 20){
+                        $(this).children('.card-header, .card-image').addClass('hinge animated');
+                    }
+                });
+            });
+        }
+    }
+}
+</script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $().ready(function() {
+
+        setTimeout(function() {
+            // after 1000 ms we add the class animated to the login/register card
+            $('.card').removeClass('card-hidden');
+        }, 700);
+
+        $('#loginBtn').click(function() 
+        {
+            // var password = $("#password").val();
+            // var token = $("#token").val();
+            
+                $.ajax({
+                    type: "GET",
+//                    url: "http://autogate.webscrapers.com.au/api/login/login.php",
+                    url: "http://localhost:3000/callback",
+                    // data: { oauth_req: 'req' },
+                    cache: false,
+                    // beforeSend: function(){ 
+                    //      $("#error").fadeOut();
+                    // },
+                    success: function(data){
+                        if(data.success == 1) {
+                            $("#loginBtn").html("Connecting...");
+                             window.location.href = "http:/localhost:";
+                             console.log('success received!');
+                        } 
+                        else {
+                            $("#error").fadeIn();
+                            $("#error").html("<p style='color:#cc0000; text-align: center;'>Forgot password?</p>  ");
+                            console.log('miss arrived data.');
+                        }
+                    }
+                });
+            return false;
+        });
+    });
+
+
+</script>
+</html>

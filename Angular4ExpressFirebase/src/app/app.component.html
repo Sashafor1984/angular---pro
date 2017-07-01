@@ -1,0 +1,105 @@
+    <div class="container" id = "loginCard" *ngIf="!(user | async)?.uid">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="rose">
+                        <i class="material-icons">contacts</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title" style="margin-bottom: 30px;text-align:center;font-family: Ubuntu"> SQUARE UP </h4>
+                        <div class="footer text-center">
+                            <a class="btn btn-social btn-fill" href="https://connect.squareup.com/oauth2/authorize?client_id=sq0idp-tnZwdlvjmwAsWGUicFE3rw&scope=PAYMENTS_WRITE PAYMENTS_READ&state=somestring"><i class="fa fa-pinterest"></i> CONNECT WITH SQUAREUP </a>
+                            <button (click)="login($event)" *ngIf="!(user | async)?.uid" class="btn btn-fill btn-rose">Sign In</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <div class="row columns">
+  <!--<button (click)="login()" *ngIf="!(user | async)?.uid">Anonymous Login</button>
+  <button (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>-->
+
+  <!--<input type="text" id="message" *ngIf="(user | async)?.uid" placeholder="What is it that you do?" (keyup.enter)="Send($event.target.value)" [(ngModel)]="msgVal" />
+  <div id="details-container">
+      <p *ngFor="let item of items | async"><img src="../assets/images/pin.svg">{{item.message}}</p>
+  </div>-->
+    
+</div>
+
+<div class="main-content" *ngIf="(user | async)?.uid">
+    <div class="container-fluid">
+        <div class="row">
+            <div *ngFor="let transaction of transactions | async" class="col-lg-3 col-md-4" >
+                <div *ngFor="let location of locations | async" class="card card-chart" style="height:100%">
+                    <div (click) = "onClick(transaction.$key)" class="card-header" data-background-color="green" data-header-animation="true">
+                        <div class="row ct-chart card-header">
+                            <h4 style="float:left; font-family: Bowlby One" class = "pull-right">{{location.name}}</h4>
+                            <img src="../assets/images/pin.svg"/>
+                        </div>
+                        <div class="row card-header">
+                            <h5 style="float:left; font-family:Roboto Condensed">{{transaction.transactions[0].value.created_at | date: 'mediumTime'}}</h5>
+                            <!--<h5 class="pull-right" style = "font-family:Roboto Condensed">00:00</h5>-->
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title">
+                            <!--<a href="#pablo" onclick="">{{item.message}}</a>-->
+                        </h4>
+                        <h5 class="pull-right">${{transaction.transactions[0].value.tenders[0].amount_money.amount}}</h5>
+                        <h6>{{transaction.transactions[0].value.tenders[0].id}}</h6>
+                        <!--<h5>{{item.message}}</h5>-->
+                        <div class="card-description">
+                            <!--<h4>{{item.message}}</h4>-->
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">
+                            <!--<h4>{{item.message}}</h4>-->
+                        </div>
+                        <div class="stats pull-right">
+                            <h4>{{transaction.transactions[0].value.tenders[0].type}}</h4>
+                            <!--<p class="category">{{item.message}}</p>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngFor="let item of items | async" class="col-lg-3 col-md-4" >
+                <div class="card card-chart" style="height:100%">
+                    <div (click) = "onClick($event)" class="card-header" data-background-color="green" data-header-animation="true">
+                        <div class="row ct-chart card-header">
+                            <h4 style="float:left; font-family: Bowlby One" class = "pull-right"></h4>
+                            <img src="../assets/images/pin.svg"/>
+                        </div>
+                        <div class="row card-header">
+                            <h6>{{item | json}}</h6>
+                            <!--<h5 style="float:left; font-family:Roboto Condensed">{{transaction.transactions[0].value.created_at | date: 'mediumTime'}}</h5>-->
+                            <!--<h5 class="pull-right" style = "font-family:Roboto Condensed">00:00</h5>-->
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title">
+                            <!--<a href="#pablo" onclick="">{{item.message}}</a>-->
+                        </h4>
+                        <!--<h5 class="pull-right">${{transaction.transactions[0].value.tenders[0].amount_money.amount}}</h5>-->
+                        <!--<h6>{{transaction.transactions[0].value.tenders[0].id}}</h6>-->
+                        <!--<h5>{{item.message}}</h5>-->
+                        <div class="card-description">
+                            <!--<h4>{{item.message}}</h4>-->
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">
+                            <!--<h4>{{item.message}}</h4>-->
+                        </div>
+                        <div class="stats pull-right">
+                            <!--<h4>{{transaction.transactions[0].value.tenders[0].type}}</h4>-->
+                            <!--<p class="category">{{item.message}}</p>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

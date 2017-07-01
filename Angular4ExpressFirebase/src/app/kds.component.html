@@ -1,0 +1,42 @@
+<h1>asdasasd</h1>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div *ngFor="let transaction of transactions | async" class="col-lg-3 col-md-4" >
+                <div *ngFor="let location of locations | async" class="card card-chart" style="height:100%">
+                    <div (click) = "onClick($event)" class="card-header" data-background-color="green" data-header-animation="true">
+                        <div class="row ct-chart card-header">
+                            <h4 style="float:left; font-family: Bowlby One" class = "pull-right">{{location.name}}</h4>
+                            <img src="../assets/images/pin.svg"/>
+                        </div>
+                        <div class="row card-header">
+                            <h5 style="float:left; font-family:Roboto Condensed">{{transaction.transactions[0].value.created_at | date: 'mediumTime'}}</h5>
+                            <h5 class="pull-right" style = "font-family:Roboto Condensed">00:00</h5>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title">
+                            <!--<a href="#pablo" onclick="">{{item.message}}</a>-->
+                        </h4>
+                        <h5 class="pull-right">${{transaction.transactions[0].value.tenders[0].amount_money.amount}}</h5>
+                        <h6>{{transaction.transactions[0].value.tenders[0].id}}</h6>
+                        <!--<h5>{{item.message}}</h5>-->
+                        <div class="card-description">
+                            <!--<h4>{{item.message}}</h4>-->
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">
+                            <!--<h4>{{item.message}}</h4>-->
+                        </div>
+                        <div class="stats pull-right">
+                            <h4>{{transaction.transactions[0].value.tenders[0].type}}</h4>
+                            <!--<p class="category">{{item.message}}</p>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
