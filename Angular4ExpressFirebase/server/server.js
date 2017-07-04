@@ -8,12 +8,12 @@ const bodyParser = require('body-parser');
 // firebase config
 var firebase = require("firebase");
 var config = {
-  apiKey: "AIzaSyB_8Tybg6T8oCAkKGHXzEgXFgK0RL2aYow",
-    authDomain: "kds-app.firebaseapp.com",
-    databaseURL: "https://kds-app.firebaseio.com",
-    projectId: "kds-app",
-    storageBucket: "kds-app.appspot.com",
-    messagingSenderId: "49017070703"
+  apiKey: "Yours",
+    authDomain: "yours-app.firebaseapp.com",
+    databaseURL: "https://yours.firebaseio.com",
+    projectId: "yours-app",
+    storageBucket: "yours-app.appspot.com",
+    messagingSenderId: "yours"
 };
 firebase.initializeApp(config);
 
@@ -57,9 +57,9 @@ app.get('/callback', function (req, res) {
   var authorization_code = req.query.code;
   if(authorization_code != null){
     console.log('Auth_code: ' + authorization_code);
-    var application_id = 'sq0idp-tnZwdlvjmwAsWGUicFE3rw';
-    var application_secret = 'sq0csp-3cDkzyiFMoEXSZLPpDi-8boo9_djxWAsWe7IuGHm7_8';
-    var sandbox_application_id = 'sandbox-sq0idp-tnZwdlvjmwAsWGUicFE3rw';
+    var application_id = 'yours';
+    var application_secret = 'yours';
+    var sandbox_application_id = 'yours';
     var url = 'https://connect.squareup.com/oauth2/token';
     const oauth_request_body = {
       'grant_type': authorization_code,
@@ -92,7 +92,7 @@ app.get('/callback', function (req, res) {
   
   function Get_Data(person_token){
      var stream_url = 'https://streamdata.motwin.net/';
-      var app_token = 'NmMwM2VmN2MtMmYzZS00OGQ4LTg0MGUtNjZhODQ3N2U0MjIw';
+      var app_token = 'yours';
       var targetUrl = 'https://connect.squareup.com/v2/';
       var url = stream_url + targetUrl + 'locations?X-Sd-Token=' + app_token;
       var eventSourceInitDict = {headers: {'Authorization':'Bearer ' + person_token }};
