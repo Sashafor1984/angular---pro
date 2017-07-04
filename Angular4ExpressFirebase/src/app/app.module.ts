@@ -20,12 +20,12 @@ const appRoutes: Routes = [
   ];
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyB_8Tybg6T8oCAkKGHXzEgXFgK0RL2aYow",
-  authDomain: "kds-app.firebaseapp.com",
-  databaseURL: "https://kds-app.firebaseio.com",
+  apiKey: "yours",
+  authDomain: "yours-app.firebaseapp.com",
+  databaseURL: "https://yours-app.firebaseio.com",
   projectId: "kds-app",
-  storageBucket: "kds-app.appspot.com",
-  messagingSenderId: "49017070703"
+  storageBucket: "yours-app.appspot.com",
+  messagingSenderId: "yours"
 };
 
 @NgModule({
